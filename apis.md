@@ -7,13 +7,13 @@ image: http://kinlane-productions.s3.amazonaws.com/screen-capture-api/294-7digit
 x-kinRank: "7"
 x-alexaRank: "55455"
 tags: 7digital
-created: "2018-05-22"
-modified: "2018-05-22"
+created: "2018-05-24"
+modified: "2018-05-24"
 url: https://raw.githubusercontent.com/streamdata-gallery-organizations/7digital/master/_listings/7digital/apis.md
 specificationVersion: "0.14"
 apis: []
 x-common:
-- type: x-net-sdk
+- type: x--net-sdk
   url: https://github.com/7digital/SevenDigital.Api.Wrapper
 - type: x-android-sdk
   url: http://developer.7digital.com/7digital-android-sdk
@@ -45,7 +45,7 @@ x-common:
   url: https://github.com/7digital
 - type: x-ios-sdk
   url: https://github.com/7digital/7digital-iOS-SDK
-- type: x-nodejs-sdk
+- type: x-node-js-sdk
   url: https://github.com/raoulmillais/node-7digital-api
 - type: x-php-sdk
   url: https://github.com/gquemener/7digital-client
