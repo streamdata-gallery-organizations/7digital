@@ -7,8 +7,8 @@ image: http://kinlane-productions.s3.amazonaws.com/screen-capture-api/294-7digit
 x-kinRank: "7"
 x-alexaRank: "55455"
 tags: 7digital
-created: "2018-06-17"
-modified: "2018-06-17"
+created: "2018-06-20"
+modified: "2018-06-20"
 url: https://raw.githubusercontent.com/streamdata-gallery-organizations/7digital/master/_listings/7digital/apis.md
 specificationVersion: "0.14"
 apis:
