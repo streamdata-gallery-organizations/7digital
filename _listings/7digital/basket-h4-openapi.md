@@ -3,9 +3,8 @@ swagger: "2.0"
 x-collection-name: 7digital
 x-complete: 0
 info:
-  title: 7digital Basket API basket
+  title: 7digital Purchasing API basket
   description: Basket.
-  termsOfService: http://developer.7digital.com/db/Attachments/Legal/Terms_of_Use/7digital%20Public%20API%20Terms.pdf
   version: "1.2"
 host: api.7digital.com
 basePath: 1.2/
@@ -16,6 +15,53 @@ produces:
 consumes:
 - application/json
 paths:
+  artist/browse:
+    'get ':
+      summary: artist/browse
+      description: This method returns a list of artists from the 7digital catalogue
+        whose names match the start letter(s) supplied.
+      operationId: artistbrowse
+      x-api-path-slug: artistbrowse-get
+      parameters:
+      - ~
+      - in: query
+        name: artistId
+        description: unique identifier of the artist
+      - in: query
+        name: country
+        description: nttttttt 2 letter ISO country code of the country whose releases
+          you would like to searchntttttt
+      - in: query
+        name: imageSize
+        description: nttttttt The requested width of the image in pixelsntttttt
+      - in: query
+        name: letter
+        description: The first letter(s) of the artist name to browse
+      - in: query
+        name: page
+        description: Page number of the result set
+      - in: query
+        name: pageSize
+        description: Number of items to be returned per page
+      - in: query
+        name: period
+        description: The time period for which the chart is generated
+      - in: query
+        name: streamable
+        description: If provided search results will contain only releases that can/cannot
+          be streamed
+      - in: query
+        name: toDate
+        description: The last day the chart should include data for
+      - in: query
+        name: type
+        description: Releases can be of type album, single or video
+      responses:
+        200:
+          description: OK
+      tags:
+      - Artist
+      - Browse
   basket:
     '<h4 ':
       summary: basket
