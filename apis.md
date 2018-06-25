@@ -4,7 +4,7 @@ description: This is a repository of 7digital APIs, self-contained as a Github r
   with HTML and YAML representations of the APIs and their surrounding operations.
 image: http://template.streamdata.gallery/assets/7digital.png
 created: "2018-02-24"
-modified: "2018-06-20"
+modified: "2018-06-25"
 url: http://7digital.streamdata.gallery/apis.json
 specificationVersion: "0.14"
 apis: []
