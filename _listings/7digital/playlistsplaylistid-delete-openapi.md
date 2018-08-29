@@ -16,6 +16,207 @@ produces:
 consumes:
 - application/json
 paths:
+  basket:
+    '<h4 ':
+      summary: basket
+      description: Basket.
+      operationId: basket
+      x-api-path-slug: basket-h4
+      parameters:
+      - ~
+      - in: query
+        name: amountDue
+      - in: query
+        name: artistName
+      - in: query
+        name: basket id
+      - in: query
+        name: basketId
+        description: nttttttttThe unique identifier of the basket as acquired by basket/create
+          methodnttttttt
+      - in: query
+        name: basketItem id
+      - in: query
+        name: basketItems
+      - in: query
+        name: country
+        description: The code of the country the end user resides in
+      - in: query
+        name: discount
+      - in: query
+        name: itemCount
+      - in: query
+        name: itemName
+      - in: query
+        name: package
+      - in: query
+        name: price
+      - in: query
+        name: releaseId
+      - in: query
+        name: trackId
+      - in: query
+        name: type
+      responses:
+        200:
+          description: OK
+      tags:
+      - Basket
+  artist/browse:
+    'get ':
+      summary: artist/browse
+      description: This method returns a list of artists from the 7digital catalogue
+        whose names match the start letter(s) supplied.
+      operationId: artistbrowse
+      x-api-path-slug: artistbrowse-get
+      parameters:
+      - ~
+      - in: query
+        name: artistId
+        description: unique identifier of the artist
+      - in: query
+        name: country
+        description: nttttttt 2 letter ISO country code of the country whose releases
+          you would like to searchntttttt
+      - in: query
+        name: imageSize
+        description: nttttttt The requested width of the image in pixelsntttttt
+      - in: query
+        name: letter
+        description: The first letter(s) of the artist name to browse
+      - in: query
+        name: page
+        description: Page number of the result set
+      - in: query
+        name: pageSize
+        description: Number of items to be returned per page
+      - in: query
+        name: period
+        description: The time period for which the chart is generated
+      - in: query
+        name: streamable
+        description: If provided search results will contain only releases that can/cannot
+          be streamed
+      - in: query
+        name: toDate
+        description: The last day the chart should include data for
+      - in: query
+        name: type
+        description: Releases can be of type album, single or video
+      responses:
+        200:
+          description: OK
+      tags:
+      - Artist
+      - Browse
+  release/chart:
+    'get ':
+      summary: release/chart
+      description: This endpoint returns a chart of the most purchased releases for
+        given week. Only albums are included in this chart. To retrieve the most recent
+        charts as published on 7digital.com the toDate parameter should be omitted.
+      operationId: releasechart
+      x-api-path-slug: releasechart-get
+      parameters:
+      - ~
+      - in: query
+        name: country
+        description: nttttttt 2 letter ISO country code of the country whose releases
+          you would like to viewntttttt
+      - in: query
+        name: imageSize
+        description: nttttttt The requested width of the image in pixelsntttttt
+      - in: query
+        name: page
+        description: Page number of the result set
+      - in: query
+        name: pageSize
+        description: Number of items to be returned per page
+      - in: query
+        name: streamable
+        description: If provided search results will contain only releases that can/cannot
+          be streamed
+      - in: query
+        name: toDate
+        description: The last day the chart should include data for
+      responses:
+        200:
+          description: OK
+      tags:
+      - Release
+      - Chart
+  tag:
+    'get ':
+      summary: tag
+      description: This method returns a list of all available tags.
+      operationId: tag
+      x-api-path-slug: tag-get
+      parameters:
+      - ~
+      - in: query
+        name: artistId
+        description: The unique identifier of the artist
+      - in: query
+        name: country
+        description: nttttttt2 letter ISO country code of the country whose artists
+          you would like to searchntttttt
+      - in: query
+        name: imageSize
+        description: ntttttttThe requested width of the image in pixelsntttttt
+      - in: query
+        name: page
+        description: Page number of the result set
+      - in: query
+        name: pageSize
+        description: Number of items to be returned per page
+      - in: query
+        name: streamable
+        description: If provided search results will contain only artists that can/cannot
+          be streamed
+      - in: query
+        name: tags
+        description: A single or comma separated list of tags
+      responses:
+        200:
+          description: OK
+      tags:
+      - Tag
+  track/chart:
+    'get ':
+      summary: track/chart
+      description: This endpoint returns a chart of the most purchased tracks for
+        given week. To retrieve the most recent charts as published on 7digital.com
+        the toDate parameter should be omitted.
+      operationId: trackchart
+      x-api-path-slug: trackchart-get
+      parameters:
+      - ~
+      - in: query
+        name: country
+        description: 2 letter ISO country code of the country whose tracks you would
+          like to search
+      - in: query
+        name: imageSize
+        description: The requested width of the image in pixels
+      - in: query
+        name: page
+        description: Page number of the result set
+      - in: query
+        name: pageSize
+        description: Number of items to be returned per page
+      - in: query
+        name: streamable
+        description: If provided search results will contain only tracks that can/cannot
+          be streamed
+      - in: query
+        name: toDate
+        description: The last day the chart should include data for
+      responses:
+        200:
+          description: OK
+      tags:
+      - Track
+      - Chart
   playlists:
     'get ':
       summary: playlists

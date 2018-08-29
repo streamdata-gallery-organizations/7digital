@@ -17,6 +17,52 @@ produces:
 consumes:
 - application/json
 paths:
+  basket:
+    '<h4 ':
+      summary: basket
+      description: Basket.
+      operationId: basket
+      x-api-path-slug: basket-h4
+      parameters:
+      - ~
+      - in: query
+        name: amountDue
+      - in: query
+        name: artistName
+      - in: query
+        name: basket id
+      - in: query
+        name: basketId
+        description: nttttttttThe unique identifier of the basket as acquired by basket/create
+          methodnttttttt
+      - in: query
+        name: basketItem id
+      - in: query
+        name: basketItems
+      - in: query
+        name: country
+        description: The code of the country the end user resides in
+      - in: query
+        name: discount
+      - in: query
+        name: itemCount
+      - in: query
+        name: itemName
+      - in: query
+        name: package
+      - in: query
+        name: price
+      - in: query
+        name: releaseId
+      - in: query
+        name: trackId
+      - in: query
+        name: type
+      responses:
+        200:
+          description: OK
+      tags:
+      - Basket
   artist/browse:
     'get ':
       summary: artist/browse
@@ -64,52 +110,217 @@ paths:
       tags:
       - Artist
       - Browse
-  basket:
-    '<h4 ':
-      summary: basket
-      description: Basket.
-      operationId: basket
-      x-api-path-slug: basket-h4
+  release/chart:
+    'get ':
+      summary: release/chart
+      description: This endpoint returns a chart of the most purchased releases for
+        given week. Only albums are included in this chart. To retrieve the most recent
+        charts as published on 7digital.com the toDate parameter should be omitted.
+      operationId: releasechart
+      x-api-path-slug: releasechart-get
       parameters:
       - ~
       - in: query
-        name: amountDue
-      - in: query
-        name: artistName
-      - in: query
-        name: basket id
-      - in: query
-        name: basketId
-        description: nttttttttThe unique identifier of the basket as acquired by basket/create
-          methodnttttttt
-      - in: query
-        name: basketItem id
-      - in: query
-        name: basketItems
-      - in: query
         name: country
-        description: The code of the country the end user resides in
+        description: nttttttt 2 letter ISO country code of the country whose releases
+          you would like to viewntttttt
       - in: query
-        name: discount
+        name: imageSize
+        description: nttttttt The requested width of the image in pixelsntttttt
       - in: query
-        name: itemCount
+        name: page
+        description: Page number of the result set
       - in: query
-        name: itemName
+        name: pageSize
+        description: Number of items to be returned per page
       - in: query
-        name: package
+        name: streamable
+        description: If provided search results will contain only releases that can/cannot
+          be streamed
       - in: query
-        name: price
-      - in: query
-        name: releaseId
-      - in: query
-        name: trackId
-      - in: query
-        name: type
+        name: toDate
+        description: The last day the chart should include data for
       responses:
         200:
           description: OK
       tags:
-      - Basket
+      - Release
+      - Chart
+  tag:
+    'get ':
+      summary: tag
+      description: This method returns a list of all available tags.
+      operationId: tag
+      x-api-path-slug: tag-get
+      parameters:
+      - ~
+      - in: query
+        name: artistId
+        description: The unique identifier of the artist
+      - in: query
+        name: country
+        description: nttttttt2 letter ISO country code of the country whose artists
+          you would like to searchntttttt
+      - in: query
+        name: imageSize
+        description: ntttttttThe requested width of the image in pixelsntttttt
+      - in: query
+        name: page
+        description: Page number of the result set
+      - in: query
+        name: pageSize
+        description: Number of items to be returned per page
+      - in: query
+        name: streamable
+        description: If provided search results will contain only artists that can/cannot
+          be streamed
+      - in: query
+        name: tags
+        description: A single or comma separated list of tags
+      responses:
+        200:
+          description: OK
+      tags:
+      - Tag
+  track/chart:
+    'get ':
+      summary: track/chart
+      description: This endpoint returns a chart of the most purchased tracks for
+        given week. To retrieve the most recent charts as published on 7digital.com
+        the toDate parameter should be omitted.
+      operationId: trackchart
+      x-api-path-slug: trackchart-get
+      parameters:
+      - ~
+      - in: query
+        name: country
+        description: 2 letter ISO country code of the country whose tracks you would
+          like to search
+      - in: query
+        name: imageSize
+        description: The requested width of the image in pixels
+      - in: query
+        name: page
+        description: Page number of the result set
+      - in: query
+        name: pageSize
+        description: Number of items to be returned per page
+      - in: query
+        name: streamable
+        description: If provided search results will contain only tracks that can/cannot
+          be streamed
+      - in: query
+        name: toDate
+        description: The last day the chart should include data for
+      responses:
+        200:
+          description: OK
+      tags:
+      - Track
+      - Chart
+  playlists:
+    'get ':
+      summary: playlists
+      description: Returns a list of all public playlists. If an oauth_token is provided
+        then also given users private playlists will be included in the response.
+      operationId: playlists
+      x-api-path-slug: playlists-get
+      parameters:
+      - ~
+      - in: query
+        name: oauth_token
+        description: Users OAuth access token - allows user to view Private playlist
+          if it belongs to them
+      - in: query
+        name: page
+        description: nttttttPage number of the result set
+      - in: query
+        name: pageSize
+        description: Number of items to be returned per page
+      - in: query
+        name: user
+        description: This allows you to pass the id of a user you wish to view the
+          playlists of a specific user
+      responses:
+        200:
+          description: OK
+      tags:
+      - Playlists
+  playlists/{playlistId}:
+    'delete ':
+      summary: playlists/{playlistId}
+      description: Deletes the playlist at {playlistId}. The playlist can only be
+        deleted by its owner, i.e. oauth_token representing the user has to be provided.
+      operationId: playlistsplaylistid
+      x-api-path-slug: playlistsplaylistid-delete
+      parameters:
+      - ~
+      - in: query
+        name: oauth_token
+        description: Users OAuth access token
+      responses:
+        200:
+          description: OK
+      tags:
+      - Playlists
+    'get ':
+      summary: playlists/{playlistId}
+      description: Returns playlist details and track listing. Access to private playlists
+        is only allowed when an oauth_token of the playlist owner is provided.
+      operationId: playlistsplaylistid
+      x-api-path-slug: playlistsplaylistid-get
+      parameters:
+      - ~
+      - in: query
+        name: oauth_token
+        description: Users OAuth access token - allows user to view private playlist
+          if it belongs to them
+      responses:
+        200:
+          description: OK
+      tags:
+      - Playlists
+  playlists/{playlistId}/details:
+    'post ':
+      summary: playlists/{playlistId}/details
+      description: Updates playlist details at {playlistId} with the supplied playlist
+        details. It does not affect playlist tracks. Use this method e.g. for changing
+        visibility of the playlist from private to public. The playlist details can
+        only be updated by the playlist owner, i.e. oauth_token representing the user
+        has to be provided.
+      operationId: playlistsplaylistiddetails
+      x-api-path-slug: playlistsplaylistiddetails-post
+      parameters:
+      - ~
+      - in: query
+        name: oauth_token
+        description: Users OAuth access token
+      responses:
+        200:
+          description: OK
+      tags:
+      - Playlists
+      - Details
+  playlists/{playlistId}/tracks/{playlisttrackid}:
+    'delete ':
+      summary: playlists/{playlistId}/tracks/{playlisttrackid}
+      description: Removes the specified track {playlisttrackid} from the specified
+        playlist at {playlistId}.  Tracks can only be removed by the playlist owner,
+        i.e. oauth_token representing the user has to be provided.
+      operationId: playlistsplaylistidtracksplaylisttrackid
+      x-api-path-slug: playlistsplaylistidtracksplaylisttrackid-delete
+      parameters:
+      - ~
+      - in: query
+        name: oauth_token
+        description: Users OAuth access token
+      responses:
+        200:
+          description: OK
+      tags:
+      - Playlists
+      - Tracks
+      - Playlisttrackid
   basket/addpriceditem:
     'get ':
       summary: basket/addpriceditem

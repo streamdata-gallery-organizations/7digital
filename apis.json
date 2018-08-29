@@ -1,0 +1,33 @@
+{
+	"name": "Streadata.io API Gallery - 7digital",
+	"description": "This is a repository of 7digital APIs, self-contained as a Github repository, with HTML and YAML representations of the APIs and their surrounding operations.",
+	"image": "http://template.streamdata.gallery/assets/7digital.png",
+	"created": "2018-02-24",
+	"modified": "2018-08-29",
+	"url": "http://7digital.streamdata.gallery/apis.json",
+	"specificationVersion": "0.14",
+	"apis": [
+		{
+			"name": "7digital",
+			"x-api-slug": "7digital",
+			"description": "Welcome to 7digital!    Choose from over 30 million high quality tracks in our store; download, sync and play your music on the go.",
+			"image": "http://kinlane-productions.s3.amazonaws.com/screen-capture-api/294-7digital.jpg",
+			"humanURL": "http://7digital.com",
+			"baseURL": "https://api.7digital.com/1.2/",
+			"tags": "7digital",
+			"properties": [
+				{
+					"type": "x-openapi-spec",
+					"url": "https://raw.githubusercontent.com/streamdata-gallery-organizations/7digital/master/_listings/7digital/openapi.md"
+				}
+			]
+		}
+	],
+	"tags": "7digital",
+	"include": [
+		{
+			"name": "7digital",
+			"url": "https://raw.githubusercontent.com/streamdata-gallery-organizations/7digital/master/_listings/7digital/apis.yaml"
+		}
+	]
+}
